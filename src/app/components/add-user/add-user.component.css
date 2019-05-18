@@ -1,0 +1,24 @@
+.form{
+    margin: 10px;
+}
+
+.form input[type="text"]{
+    padding: 5px;
+}
+
+.form input[type="email"]{
+    padding: 5px;
+}
+
+.form input[type="password"]{
+    padding: 5px;
+}
+
+form input[type="submit"]{
+    background: rgb(1, 29, 51);
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    padding: 3px;
+}

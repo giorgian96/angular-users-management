@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../../services/auth.service';
-import { JsonResponse } from 'src/app/models/JsonResponse';
+import { JsonLoginResponse } from 'src/app/models/JsonLoginResponse';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class UserComponent implements OnInit {
 
-    userData: JsonResponse;
+    userData: JsonLoginResponse;
 
     constructor(private authService: AuthService, private router: Router) { }
 

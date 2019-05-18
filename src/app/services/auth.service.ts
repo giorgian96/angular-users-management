@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/User';
-import { JsonResponse } from '../models/JsonResponse';
+import { JsonLoginResponse } from '../models/JsonLoginResponse';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,14 +12,14 @@ export class AuthService {
 
     constructor(private http: HttpClient) { }
 
-    public login(userLoginInfo: User): Observable<JsonResponse> {
+    public login(userLoginInfo: User): Observable<JsonLoginResponse> {
         // Login code here
         let httpOptions = {
             headers: new HttpHeaders({
                 'Content-type': 'application/json'
             })
         };
-        return this.http.post<JsonResponse>(`${this.apiUrl}/login`, userLoginInfo, httpOptions);
+        return this.http.post<JsonLoginResponse>(`${this.apiUrl}/login`, userLoginInfo, httpOptions);
     }
 
     public getToken(): string {

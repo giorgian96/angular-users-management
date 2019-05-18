@@ -9,6 +9,9 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserComponent } from './components/user/user.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { UserListItemComponent } from './components/user-list-item/user-list-item.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     LoginComponent,
     AdminComponent,
     UserComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UserListComponent,
+    UserListItemComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

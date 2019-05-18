@@ -10,9 +10,34 @@
 body {
     background: #456;
     font-family: 'Open Sans', sans-serif;
+    line-height: 1.4;
 }
 
 h1{
     text-align: center;
     color: #eee;
+    margin: 10px 0;
+}
+
+h2, h3{
+    margin: 6px 0;
+}
+
+a{
+    color: #ccc;
+    text-decoration: none;
+}
+
+button{
+    background: rgb(1, 29, 51);
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px 2px;
+    padding: 4px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+div{
+    text-align: center;
 }

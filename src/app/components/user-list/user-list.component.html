@@ -1,0 +1,10 @@
+<div>
+    <h3>List of users</h3>
+    <app-user-list-item 
+        *ngFor="let user of users" 
+        [user]="user"
+        (deleteUser)="deleteUser($event)"
+        >
+    </app-user-list-item>
+    <app-add-user (addUser)="addUser($event)"></app-add-user>
+</div>

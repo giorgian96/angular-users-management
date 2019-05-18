@@ -1,4 +1,4 @@
-export class JsonResponse {
+export class JsonLoginResponse {
     data: {
         id: number,
         name: string,
