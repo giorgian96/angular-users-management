@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/User';
 import { JsonResponse } from '../models/JsonResponse';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -23,12 +22,26 @@ export class AuthService {
         return this.http.post<JsonResponse>(`${this.apiUrl}/login`, userLoginInfo, httpOptions);
     }
 
-    public isLoggedIn() {
+    public getToken(): string {
         // Check if user is logged in
+        if(localStorage.getItem('json-response') === null){
+            // if there is no json response
+            return "unauthenticated";
+        }else{
+            const apiToken = JSON.parse(localStorage.getItem('json-response')).data.api_token;
+            return apiToken;
+        }        
     }
 
-    public isAdmin() {
+    public getType(): string {
         // Check if user is an admin
+        if(localStorage.getItem('json-response') === null){
+            // if there is no json response
+            return "unauthenticated";
+        }else{
+            const type = JSON.parse(localStorage.getItem('json-response')).data.type;
+            return type;
+        }        
     }
 
     public logout(apiToken: string): Observable<any> {

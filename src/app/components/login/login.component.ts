@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
     loginForm: FormGroup;
     isSubmitted = false;
+    errorText: string;
 
     constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder) { }
 
@@ -34,12 +35,15 @@ export class LoginComponent implements OnInit {
             return;
         }
         this.authService.login(userLoginInfo).subscribe(response => {
-            localStorage.setItem("api_token", response.data.api_token);
+            localStorage.setItem("json-response", JSON.stringify(response));
             if (response.data.type == 'default') {
                 this.router.navigateByUrl('/user');
             } else if (response.data.type == 'admin') {
                 this.router.navigateByUrl('/admin');
             }
+        },
+        error => {
+            this.errorText = `Error ${error.error.code}, ${error.error.error}`;
         });
     }
 }

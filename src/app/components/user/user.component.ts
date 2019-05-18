@@ -11,16 +11,17 @@ import { Router } from '@angular/router';
 })
 export class UserComponent implements OnInit {
 
-    // userData: JsonResponse;
+    userData: JsonResponse;
 
     constructor(private authService: AuthService, private router: Router) { }
 
     ngOnInit() {
+        this.userData = JSON.parse(localStorage.getItem('json-response'));
     }
 
     logout() {
-        this.authService.logout(localStorage.getItem("api_token")).subscribe(response => {
-            localStorage.removeItem("api_token");
+        this.authService.logout(this.userData.data.api_token).subscribe(response => {
+            localStorage.removeItem("json-response");
             if (response.message == "Logout successful") {
                 this.router.navigateByUrl('/login');
             }
