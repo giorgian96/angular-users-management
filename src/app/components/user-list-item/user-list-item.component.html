@@ -1,12 +1,6 @@
 <div>
     <p class="user-item" >
-        <span (click)="onSelect(user)">
-            id: {{ user.id }} |
-            name: {{ user.name }} |
-            email: {{ user.email }} |
-            type: {{ user.type }}
-        </span>
-        <button class="btn" (click)="onEdit(user)">Edit</button>
+        <a routerLink="/admin/detail/{{user.id}}">name: {{ user.name }}</a>
         <button class="del" (click)="onDelete(user)">Delete</button>
     </p>
 </div>

@@ -37,8 +37,19 @@ export class UserManagementService {
         return this.http.get<any>(url, httpOptions);
     }
 
-    // Edit user
-    editUser(user: User):Observable<any>{
+    // Get single user
+    getUser(id: number): Observable<any>{
+        let url: string = `${this.apiUrl}user/${id}`;
+        let httpOptions = {
+            headers: new HttpHeaders({
+                'Authorization': `Bearer ${this.apiToken}`
+            })
+        };
+        return this.http.get<any>(url, httpOptions);
+    }
+
+    // Update user
+    updateUser(user: User):Observable<any>{
         let url: string = `${this.apiUrl}user/update/${user.id}`;
         let httpOptions = {
             headers: new HttpHeaders({
@@ -46,7 +57,7 @@ export class UserManagementService {
                 'Authorization': `Bearer ${this.apiToken}`
             })
         };
-        return this.http.put(url, user, httpOptions);
+        return this.http.put<any>(url, user, httpOptions);
     }
 
     // Delete user

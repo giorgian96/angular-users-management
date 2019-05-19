@@ -17,16 +17,6 @@ export class UserListItemComponent implements OnInit {
     ngOnInit() {
     }
 
-    onSelect(user: User){
-        console.log('selected', user);
-    }
-
-    onEdit(user: User){
-        this.userManagementService.editUser(user).subscribe(response => {
-            console.log(response);
-        });
-    }
-
     onDelete(user: User){
         this.deleteUser.emit(user);
     }

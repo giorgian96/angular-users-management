@@ -6,6 +6,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { UserComponent } from './components/user//user.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
 
 import { IsLoggedInGuard } from './guards/is-logged-in.guard';
 import { IsAdminGuard } from './guards/is-admin.guard';
@@ -15,6 +16,7 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'admin', component: AdminComponent, canActivate: [IsAdminGuard], data: {type: 'admin'} },
     { path: 'user', component: UserComponent, canActivate: [IsLoggedInGuard], data: {type: 'default'} },
+    { path: 'admin/detail/:id', component: UserDetailComponent, canActivate: [IsAdminGuard], data: {type: 'admin'} },
     { path: '404', component: PageNotFoundComponent },
     { path: '**', component: PageNotFoundComponent }
 ];
